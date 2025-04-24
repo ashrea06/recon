@@ -83,7 +83,7 @@ dnsrecon -a -d target_domain
 ````
 
 
-## 🔍 Potential Typosquatting
+# 🔍 Potential Typosquatting
 
 Are there any registered domains present that could represent a threat to the target organization (urlcrazy or dnstwist output)? Visit each variation with a registered IP address and report on anything fishy.
 
@@ -170,6 +170,7 @@ Company*
 
 After identifying company names, network blocks, and IP addresses associated with an organization, those artifacts can be used to seed automated reconnaissance using a tool like Recon-ng.
 
+
 Install Recon-ng Modules:
 
 ````
@@ -211,88 +212,119 @@ options set USER-AGENT "Relevant user-agent string"
 
 ## Generate HTML report 
 
-- Set CREATOR to BHIS.
-- Set CUSTOMER to the customer name.
+- Set CREATOR to BHIS
+  
+- Set CUSTOMER to the customer name
 
 ## Generate CSV report :
 
 Include summary details from automated reconnaissance in the report.
 
+Recon-ng modules are named using the source table first, then a dash (-), followed by the destination table. This naming convention identifies the converstion of source data into destination data (i.e. netblocks into hosts). 
+As a result, if a module produces new hosts as a result of execution, re-running modules that use hosts as input may be useful. 
 
 
+## Accuracy in identifying resources that can be directly attributed to the customer is prioritized over volume. Avoid use of Recon-ng modules like the following that are likely to generate inaccurate results : 
+
+````
+mx_spf_ip 
+whois_miner 
+OWASP AMASS
+`````
 
 
+# 📧 Email Address Enumeration
+
+## Access to valid email addresses can aid in social engineering and authentication attacks. It can also provide insight into the format of internal Active Directory usernames.
+
+Email addresses can be harvested from https://hunter.io. Credentials for this service are available in LastPass. 
+
+- Submit the in-scope customer domain(s) to hunter.io.
+- Export CSV results for use in active testing.
+
+**Note** : Take note of the suspected email address format, if any, in the report.
 
 
+# 🔍 Third-Party Breach Data Enumeration
 
-
-
-
-
-
-
-
-
-
-
-
-
-📧 Email Address Enumeration
-
-Access to valid email addresses can aid in social engineering and authentication attacks. It can also provide insight into the format of internal Active Directory usernames.
-
-Submit the in-scope customer domain(s) to hunter.io.
-Export CSV results for use in active testing.
-Note the suspected email address format, if any, in the report.
-🔍 Third-Party Breach Data Enumeration
 Third-party breach data can be an additional source for valid email addresses and may provide passwords useful for credential stuffing attacks externally or expose password patterns useful for password spraying attacks both externally and during post-compromise phases of testing.
 
-Download the hoardd client from GitHub.
-Generate a configuration file for Goldmine using the details found in the LastPass entry notes.
-Execute the hoardd client, passing in in-scope customer domain(s) to produce CSV results for use in active testing.
-Identify the number of unique email addresses and the presence of credentials in the report.
+## **Note** : The Goldmine leak database is a useful source of third-party breach results. 
+
+- Download the hoardd client from github at https://github.com/hoardd/hoardd-client/releases.
+- Generate a configuration file for Goldmine using the details found in the LastPass entry notes.
+- Execute the hoardd client, passing in in-scope customer domain(s) to produce CSV results for use in active testing.
+- Identify the number of unique email addresses and the presence of credentials in the report.
 
 
-🌐 CMS Analysis
+# 🌐 CMS Analysis
 
-An organization's main web presence may provide an avenue for attacking the organization. Content Management Systems (CMS) are a common choice for building and maintaining that web presence. Identifying the CMS technology may aid in formulating attacks against the organization as CMS vulnerabilities may be used as a watering hole for customers and/or employees of the target organization.
+## An organization's main web presence may provide an avenue for attacking the organization. Content Management Systems (CMS) are a common choice for building and maintaining that web presence.Identifying the CMS technology may aid in formulating attacks against the organization as CMS vulnerabilities may be used as a "watering hole" for customers and/or employees of the "target organization".
 
-Submit the in-scope customer domain(s) to whatcms.org.
-Record interesting results in the reconnaissance report.
+The "https://whatcms.org" site can be used to anonymously detect the underlying technology related to a given domain. Identification of the CMS is often follwed by some form of scanning during the active phase of testing. 
+
+- Submit the in-scope customer domain(s) to whatcms.org.
+  
+- Record interesting results in the reconnaissance report.
 
 
-☁️ Cloud Provider Analysis
+# ☁️ Cloud Provider Analysis
 
 Increasingly, organizations are using cloud providers for various services. Those services may expose the ability to perform enumeration of organizational resources, execute authentication attacks, or may directly expose sensitive information to the public.
 
-Cloud Provider Username Enumeration
+## Cloud Provider Username Enumeration
 
-Submit a valid email address to Microsoft 365 login.
-Submit a valid email address to Google GSuite login.
+- Cloud providers like Microsoft 365 and Google GSuite suffer from username enumeration on their respective login pages. Submitting a valid email address to the login page of a given service may be enough to confirm the use of those services by the organization. 
+
+
+Submit a valid email address to https://login.microsoftonline.com. 
+
+Submit a valid email address to https://accounts.google.com. 
+
 Record results indicating usage in the reconnaissance report.
 
-Microsoft 365 Reconnaissance
+**Note** : Valid email addresses for the above checks may be selected from Email Address Enumeration or Third-Party breach data assembled above. The email address of the point of contact may also be used for this purpose. 
 
-If the organization is found to use Microsoft 365 products, additional reconnaissance should be performed against the organization's tenant.
+## When recording results in the report, be sure to capture relevant details : 
 
-Perform Microsoft 365 reconnaissance against the customer domain(s) AADInternals. 
+Does the submission result in an error (service not used), proceed to generic password form or customer branded password form (service used), redirect to an external SSO provider, or redirect to some on-premises service like Active Directory Federated Services (ADFS)? 
+
+
+
+# Microsoft 365 Reconnaissance
+
+## If the organization is found to use Microsoft 365 products, additional reconnaissance should be performed against the organization's tenant.
+
+These actions can be performed using the AADInternals project without needing credentials :  
+
+
+- Perform Microsoft 365 reconnaissance against the customer domain(s) AADInternals : 
+
+
+**Open an elevated PowerShell window** : 
 
 ```
 Install-Module AADInternals
 Import-Module AADInternals
 ```
 
-Execute reconnaissance using :
+
+**Execute reconnaissance using** :
 
 ````
 Invoke-AADIntReconAsOutsider -DomainName customer_domain | Format-Table
 `````
 
-Identify domains serviced by the tenant in the reconnaissance report.
-Identify whether DesktopSSO is enabled on the tenant.
+- Identify domains serviced by the tenant in the reconnaissance report.
+
+- Identify whether DesktopSSO is enabled on the tenant.
 
 
 # Cloud Resource Enumeration
+
+## Cloud resources deployed in Google Cloud Provider (GCP), Amazon Web Services (AWS), or Microsoft Azure may be improperly exposed, resulting in risk to the target organization. 
+
+**Note: Checks can be performed using the Grayhatwarfare (Credentials in LastPass) search engine or cloud_enum script to identify publicly exposed resources.** 
 
 - Submit variations on the company name to Grayhatwarfare.
 - Investigate interesting results.
@@ -304,17 +336,14 @@ Identify whether DesktopSSO is enabled on the tenant.
 
 📄 Public Document Analysis
 
-Search engine searches can be used to identify various types of office automation documents associated with a given organization. The contents and metadata associated with those documents may contain information useful for executing attacks against the organization.
+## Search engine searches can be used to identify various types of office automation documents associated with a given organization. The contents and metadata associated with those documents may contain information useful for executing attacks against the organization.
 
-Metadata may include employee full names, usernames, email addresses, internal hostnames, IP addresses, UNC paths, applications titles and versions used by the organization. Document content may also include useful details about the organization such as event details, business relationships, lists of email addresses, phone numbers, among others. 
+**Note** : Metadata may include employee full names, usernames, email addresses, internal hostnames, IP addresses, UNC paths, applications titles and versions used by the organization. Document content may also include useful details about the organization such as event details, business relationships, lists of email addresses, phone numbers, among others. 
 
-Execute PowerMeta.
+- Execute PowerMeta.
 
 
 🔍 GitHub Analysis
 
 Analyze the organization's GitHub repositories for sensitive information, hardcoded secrets, and other valuable data.
-
-``
-
 
