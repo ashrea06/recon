@@ -319,7 +319,6 @@ Invoke-AADIntReconAsOutsider -DomainName customer_domain | Format-Table
 `````
 
 - Identify domains serviced by the tenant in the reconnaissance report.
-
 - Identify whether DesktopSSO is enabled on the tenant.
 
 
