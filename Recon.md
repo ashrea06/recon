@@ -83,7 +83,7 @@ dnsrecon -a -d target_domain
 ````
 
 
-# 🔍 Potential Typosquatting
+## 🔍 Potential Typosquatting
 
 Are there any registered domains present that could represent a threat to the target organization (urlcrazy or dnstwist output)? Visit each variation with a registered IP address and report on anything fishy.
 
