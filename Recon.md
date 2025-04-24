@@ -286,9 +286,11 @@ The "https://whatcms.org" site can be used to anonymously detect the underlying 
 
 **Note** : Valid email addresses for the above checks may be selected from Email Address Enumeration or Third-Party breach data assembled above. The email address of the point of contact may also be used for this purpose. 
 
-## When recording results in the report, be sure to capture relevant details : 
 
-Does the submission result in an error (service not used), proceed to generic password form or customer branded password form (service used), redirect to an external SSO provider, or redirect to some on-premises service like Active Directory Federated Services (ADFS)? 
+
+When recording results in the report, be sure to capture relevant details : 
+
+- Does the submission result in an error (service not used), proceed to generic password form or customer branded password form (service used), redirect to an external SSO provider, or redirect to some on-premises service like Active Directory Federated Services (ADFS)? 
 
 
 
