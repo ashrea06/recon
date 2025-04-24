@@ -224,7 +224,8 @@ Recon-ng modules are named using the source table first, then a dash (-), follow
 As a result, if a module produces new hosts as a result of execution, re-running modules that use hosts as input may be useful. 
 
 
-## Accuracy in identifying resources that can be directly attributed to the customer is prioritized over volume. Avoid use of Recon-ng modules like the following that are likely to generate inaccurate results : 
+Accuracy in identifying resources that can be directly attributed to the customer is prioritized over volume. Avoid use of Recon-ng modules like the following that are likely to generate inaccurate results : 
+
 
 ````
 mx_spf_ip 
