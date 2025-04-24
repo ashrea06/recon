@@ -218,7 +218,7 @@ options set USER-AGENT "Relevant user-agent string"
 
 ## Generate CSV report :
 
-Include summary details from automated reconnaissance in the report.
+- Include summary details from automated reconnaissance in the report.
 
 Recon-ng modules are named using the source table first, then a dash (-), followed by the destination table. This naming convention identifies the converstion of source data into destination data (i.e. netblocks into hosts). 
 As a result, if a module produces new hosts as a result of execution, re-running modules that use hosts as input may be useful. 
@@ -237,7 +237,7 @@ OWASP AMASS
 
 ## Access to valid email addresses can aid in social engineering and authentication attacks. It can also provide insight into the format of internal Active Directory usernames.
 
-Email addresses can be harvested from https://hunter.io. Credentials for this service are available in LastPass. 
+**Note** : Email addresses can be harvested from https://hunter.io. Credentials for this service are available in LastPass. 
 
 - Submit the in-scope customer domain(s) to hunter.io.
 - Export CSV results for use in active testing.
@@ -270,18 +270,16 @@ The "https://whatcms.org" site can be used to anonymously detect the underlying 
 
 # ☁️ Cloud Provider Analysis
 
-Increasingly, organizations are using cloud providers for various services. Those services may expose the ability to perform enumeration of organizational resources, execute authentication attacks, or may directly expose sensitive information to the public.
+- Increasingly, organizations are using cloud providers for various services. Those services may expose the ability to perform enumeration of organizational resources, execute authentication attacks, or may directly expose sensitive information to the public.
 
 ## Cloud Provider Username Enumeration
 
-- Cloud providers like Microsoft 365 and Google GSuite suffer from username enumeration on their respective login pages. Submitting a valid email address to the login page of a given service may be enough to confirm the use of those services by the organization. 
+**Note** : Cloud providers like Microsoft 365 and Google GSuite suffer from username enumeration on their respective login pages. Submitting a valid email address to the login page of a given service may be enough to confirm the use of those services by the organization. 
 
 
-Submit a valid email address to https://login.microsoftonline.com. 
-
-Submit a valid email address to https://accounts.google.com. 
-
-Record results indicating usage in the reconnaissance report.
+- Submit a valid email address to https://login.microsoftonline.com. 
+- Submit a valid email address to https://accounts.google.com. 
+- Record results indicating usage in the reconnaissance report.
 
 **Note** : Valid email addresses for the above checks may be selected from Email Address Enumeration or Third-Party breach data assembled above. The email address of the point of contact may also be used for this purpose. 
 
