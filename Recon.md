@@ -118,7 +118,7 @@ Regional Registrar Whois Sites:
 
 The following list of queries focuses on use of the ARIN Whois advanced search tool. Other tools have similar functionality : 
 
-Perform POC Domain query using FQDN for the target organization
+## Perform POC Domain query using FQDN for the target organization
 
 - Click each POC record 
 - Click on Related Organizations 
@@ -126,28 +126,27 @@ Perform POC Domain query using FQDN for the target organization
 - Click on Related Networks 
 - Record each associated network block 
 
-Perform Organization Name query using wildcard variations on the target organization.
+## Perform Organization Name query using wildcard variations on the target organization.
 
 - Click on Organization records 
 - Click on Related Networks 
 - Record each associated network block 
 
-Perform Customer Name query using wildcard variations on the target organization.
+## Perform Customer Name query using wildcard variations on the target organization.
 
 - Click on Organization records 
 - Click on Related Networks 
 - Record each associated network block 
 
-Perform Delegation Name query using wildcard variations on the target organization.
+## Perform Delegation Name query using wildcard variations on the target organization.
 
 - Click on Organization records 
 - Click on Related Networks 
 - Record each associated network block 
 
-Perform searches using interesting ASNs and IP addresses identified during DNS Analysis.
+## Perform searches using interesting ASNs and IP addresses identified during DNS Analysis.
 
 Wildcard Variations:
-
 Record each associated network block 
 
 Useful wildcard variations, based on the company "Company Name" might include: 
@@ -182,7 +181,7 @@ marketplace install reporting/list
 
 Generate New Workspace for Target Organization:
 
-# Set TIMEOUT and USER-AGENT options
+## Set TIMEOUT and USER-AGENT options
 
 options set TIMEOUT 30 
 options set USER-AGENT "Relevant user-agent string" 
@@ -192,7 +191,7 @@ options set USER-AGENT "Relevant user-agent string"
 - Manually enter in-scope domain names 
 - Manually enter in-scope network blocks and IP addresses 
 
-# Execute reconnaissance modules, focusing on transforming source data into relevant target information, typical modules executed include: 
+## Execute reconnaissance modules, focusing on transforming source data into relevant target information, typical modules executed include: 
 
 - domains-contacts/whois_pocs 
 - domains-hosts/bing_domain_web 
@@ -210,12 +209,12 @@ options set USER-AGENT "Relevant user-agent string"
 
 
 
-# Generate HTML report 
+## Generate HTML report 
 
 - Set CREATOR to BHIS.
 - Set CUSTOMER to the customer name.
 
-# Generate CSV report :
+## Generate CSV report :
 
 Include summary details from automated reconnaissance in the report.
 
