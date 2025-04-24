@@ -259,12 +259,13 @@ Third-party breach data can be an additional source for valid email addresses an
 
 # 🌐 CMS Analysis
 
-## An organization's main web presence may provide an avenue for attacking the organization. Content Management Systems (CMS) are a common choice for building and maintaining that web presence.Identifying the CMS technology may aid in formulating attacks against the organization as CMS vulnerabilities may be used as a "watering hole" for customers and/or employees of the "target organization".
+An organization's main web presence may provide an avenue for attacking the organization. Content Management Systems (CMS) are a common choice for building and maintaining that web presence.
+Identifying the CMS technology may aid in formulating attacks against the organization as CMS vulnerabilities may be used as a "watering hole" for customers and/or employees of the "target organization".
+
 
 The "https://whatcms.org" site can be used to anonymously detect the underlying technology related to a given domain. Identification of the CMS is often follwed by some form of scanning during the active phase of testing. 
 
-- Submit the in-scope customer domain(s) to whatcms.org.
-  
+- Submit the in-scope customer domain(s) to whatcms.org.  
 - Record interesting results in the reconnaissance report.
 
 
