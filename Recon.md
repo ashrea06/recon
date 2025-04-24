@@ -320,9 +320,11 @@ Invoke-AADIntReconAsOutsider -DomainName customer_domain | Format-Table
 
 # Cloud Resource Enumeration
 
-## Cloud resources deployed in Google Cloud Provider (GCP), Amazon Web Services (AWS), or Microsoft Azure may be improperly exposed, resulting in risk to the target organization. 
+Cloud resources deployed in Google Cloud Provider (GCP), Amazon Web Services (AWS), or Microsoft Azure may be improperly exposed, resulting in risk to the target organization. 
+
 
 **Note: Checks can be performed using the Grayhatwarfare (Credentials in LastPass) search engine or cloud_enum script to identify publicly exposed resources.** 
+
 
 - Submit variations on the company name to Grayhatwarfare.
 - Investigate interesting results.
@@ -334,14 +336,16 @@ Invoke-AADIntReconAsOutsider -DomainName customer_domain | Format-Table
 
 📄 Public Document Analysis
 
-## Search engine searches can be used to identify various types of office automation documents associated with a given organization. The contents and metadata associated with those documents may contain information useful for executing attacks against the organization.
+Search engine searches can be used to identify various types of office automation documents associated with a given organization. The contents and metadata associated with those documents may contain information useful for executing attacks against the organization.
+
 
 **Note** : Metadata may include employee full names, usernames, email addresses, internal hostnames, IP addresses, UNC paths, applications titles and versions used by the organization. Document content may also include useful details about the organization such as event details, business relationships, lists of email addresses, phone numbers, among others. 
+
 
 - Execute PowerMeta.
 
 
-🔍 GitHub Analysis
+# 🔍 GitHub Analysis
 
-Analyze the organization's GitHub repositories for sensitive information, hardcoded secrets, and other valuable data.
+- Analyze the organization's GitHub repositories for sensitive information, hardcoded secrets, and other valuable data.
 
