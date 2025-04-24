@@ -38,20 +38,20 @@ void(0);
 ````
 
 
-🔍 Analyze NS Records
+# 🔍 Analyze NS Records
 
 Does the organization provide its own DNS?
 Is the service provider interesting?
 
 
-📧 Analyze MX Records
+# 📧 Analyze MX Records
 
 Does the organization provide its own mail services?
 Does the organization use a mail security provider (e.g., Proofpoint, Ironport)?
 Does the organization use O365 (protection.outlook.com)? (Check DirectSend spoofing during active testing)
 
 
-📜 Analyze TXT Records
+# 📜 Analyze TXT Records
 
 Does the organization publish SPF/DKIM records?
 Any interesting authorized senders (organization IP addresses, third-parties, marketing mail campaign providers)?
@@ -59,7 +59,7 @@ Soft fail or hard fail?
 Any interesting domain verification entries (see nslookup.io)?
 
 
-🌐 Analyze A Records
+# 🌐 Analyze A Records
 
 Any interesting hostnames?
 Any IP addresses or netblocks directly belonging to the customer?
@@ -68,12 +68,12 @@ Any ASNs that can be directly attributed to the target organization?
 Record IP addresses associated with those ASNs.
 
 
-🔄 NSLookup.io
+# 🔄 NSLookup.io
 
 DNSDumpster provides a great deal of detail about an organization but does not parse and identify domain verification entries automatically. Nslookup.io provides output that does not need to be manually parsed and a narrative breakdown of the SPF record.
 
 
-🔄 Zone Transfer
+# 🔄 Zone Transfer
 
 A successful zone transfer request will result in the disclosure of all records associated with a given domain. The records may include details not present through other means.
 
@@ -83,12 +83,12 @@ dnsrecon -a -d target_domain
 ````
 
 
-🔍 Potential Typosquatting
+# 🔍 Potential Typosquatting
 
 Are there any registered domains present that could represent a threat to the target organization (urlcrazy or dnstwist output)? Visit each variation with a registered IP address and report on anything fishy.
 
 
-🌐 Netblock, IP, and Autonomous System Number (ASN) Determination
+# 🌐 Netblock, IP, and Autonomous System Number (ASN) Determination
 
 The goal of this phase of activity is the identification of assets, in the form of network blocks, IP addresses, and Autonomous System Numbers (ASNs) that can be directly attributed to the target organization(s). Accuracy in identifying resources is prioritized over volume.
 
