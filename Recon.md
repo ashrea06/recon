@@ -184,9 +184,10 @@ Generate New Workspace for Target Organization:
 
 ## Set TIMEOUT and USER-AGENT options
 
+````
 options set TIMEOUT 30 
 options set USER-AGENT "Relevant user-agent string" 
-
+````
 
 - Manually enter in-scope company names 
 - Manually enter in-scope domain names 
