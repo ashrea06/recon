@@ -164,9 +164,9 @@ Company*
 - Record all discovered network blocks in the reconnaissance report for scope validation on Red Team Exercises and comparison on External Penetration Tests 
 
 
-🔍 Automated Reconnaissance
+# 🔍 Automated Reconnaissance
 
-# Recon-ng
+## Recon-ng
 
 After identifying company names, network blocks, and IP addresses associated with an organization, those artifacts can be used to seed automated reconnaissance using a tool like Recon-ng.
 
