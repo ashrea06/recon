@@ -32,3 +32,8 @@ void(0);
 
 \$('svg').css('filter', 'invert(100%) contrast(25%) saturate(400%) hue-rotate(180deg)');
 \$('.jvectormap-container').css('background-color', '#fff');
+
+
+🔍 Analyze NS Records
+Does the organization provide its own DNS?
+Is the service provider interesting?
