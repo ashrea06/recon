@@ -293,7 +293,7 @@ Does the submission result in an error (service not used), proceed to generic pa
 
 # Microsoft 365 Reconnaissance
 
-## If the organization is found to use Microsoft 365 products, additional reconnaissance should be performed against the organization's tenant.
+If the organization is found to use Microsoft 365 products, additional reconnaissance should be performed against the organization's tenant.
 
 These actions can be performed using the AADInternals project without needing credentials :  
 
