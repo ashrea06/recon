@@ -236,7 +236,8 @@ OWASP AMASS
 
 # 📧 Email Address Enumeration
 
-## Access to valid email addresses can aid in social engineering and authentication attacks. It can also provide insight into the format of internal Active Directory usernames.
+
+Access to valid email addresses can aid in social engineering and authentication attacks. It can also provide insight into the format of internal Active Directory usernames.
 
 **Note** : Email addresses can be harvested from https://hunter.io. Credentials for this service are available in LastPass. 
 
